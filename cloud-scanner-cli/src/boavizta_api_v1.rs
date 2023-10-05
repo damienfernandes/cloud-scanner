@@ -289,6 +289,7 @@ mod tests {
                 instance_type: "m6g.xlarge".to_string(),
                 usage: Some(InstanceUsage {
                     average_cpu_load: 100.0,
+                    average_ram_load: 50.0,
                     usage_duration_seconds: 3600,
                 }),
             },
@@ -357,7 +358,7 @@ mod tests {
     }
 
     #[tokio::test]
-    async fn returns_different_pe_impacts_for_different_cpu_load() {
+    async fn returns_different_pe_impacts_for_different_cpu_ram_load() {
         let instance1: CloudResource = CloudResource {
             provider: CloudProvider::AWS,
             id: "inst-1".to_string(),
@@ -366,6 +367,7 @@ mod tests {
                 instance_type: "m6g.xlarge".to_string(),
                 usage: Some(InstanceUsage {
                     average_cpu_load: 100.0,
+                    average_ram_load: 50.0,
                     usage_duration_seconds: 3600,
                 }),
             },
@@ -380,6 +382,7 @@ mod tests {
                 instance_type: "m6g.xlarge".to_string(),
                 usage: Some(InstanceUsage {
                     average_cpu_load: 1.0,
+                    average_ram_load: 1.0,
                     usage_duration_seconds: 3600,
                 }),
             },
@@ -411,6 +414,7 @@ mod tests {
                 instance_type: "m6g.xlarge".to_string(),
                 usage: Some(InstanceUsage {
                     average_cpu_load: 100.0,
+                    average_ram_load: 50.0,
                     usage_duration_seconds: 3600,
                 }),
             },
@@ -425,6 +429,7 @@ mod tests {
                 instance_type: "m6g.xlarge".to_string(),
                 usage: Some(InstanceUsage {
                     average_cpu_load: 100.0,
+                    average_ram_load: 50.0,
                     usage_duration_seconds: 3600,
                 }),
             },
@@ -439,6 +444,7 @@ mod tests {
                 instance_type: "type-not-in-boa".to_string(),
                 usage: Some(InstanceUsage {
                     average_cpu_load: 100.0,
+                    average_ram_load: 50.0,
                     usage_duration_seconds: 3600,
                 }),
             },
@@ -479,6 +485,7 @@ mod tests {
                 instance_type: "m6g.xlarge".to_string(),
                 usage: Some(InstanceUsage {
                     average_cpu_load: 100.0,
+                    average_ram_load: 50.0,
                     usage_duration_seconds: 3600,
                 }),
             },
@@ -525,6 +532,7 @@ mod tests {
                 instance_type: "m6g.xlarge".to_string(),
                 usage: Some(InstanceUsage {
                     average_cpu_load: 100.0,
+                    average_ram_load: 50.0,
                     usage_duration_seconds: 3600,
                 }),
             },
