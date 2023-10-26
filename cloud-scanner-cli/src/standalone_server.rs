@@ -44,13 +44,15 @@ fn index(config: &State<Config>) -> String {
 ///
 /// Example query: http://localhost:8000/metrics?aws_region=eu-west-3&filter_tag=Name=boatest&filter_tag=OtherTag=other-value&use_duration_hours=1.0&include_storage=true
 #[openapi(tag = "metrics")]
-#[get("/metrics?<aws_region>&<filter_tags>&<use_duration_hours>&<include_block_storage>")]
+#[get("/metrics?<aws_region>&<filter_tags>&<use_duration_hours>&<include_block_storage>&<simulation>&<filename>")]
 async fn metrics(
     config: &State<Config>,
     aws_region: &str,
     filter_tags: Vec<String>,
     use_duration_hours: Option<f32>,
     include_block_storage: Option<bool>,
+    simulation: Option<bool>,
+    filename: &str,
 ) -> String {
     warn!("Getting something on /metrics");
     let hours_use_time = use_duration_hours.unwrap_or(1.0);
@@ -61,6 +63,8 @@ async fn metrics(
         aws_region,
         &config.boavizta_url,
         include_block_storage.unwrap_or(false),
+        simulation.unwrap_or(false),
+        filename,
     )
     .await;
     metrics.unwrap()
@@ -72,12 +76,14 @@ async fn metrics(
 ///
 /// Example query: http://localhost:8000/inventorynew?aws_region=eu-west-3&filter_tag=Name=boatest&filter_tag=OtherTag=other-value
 #[openapi(tag = "inventory")]
-#[get("/inventory?<aws_region>&<filter_tags>&<include_block_storage>")]
+#[get("/inventory?<aws_region>&<filter_tags>&<include_block_storage>&<simulation>&<filename>")]
 async fn inventory(
     _config: &State<Config>,
     aws_region: &str,
     filter_tags: Vec<String>,
     include_block_storage: Option<bool>,
+    simulation: Option<bool>,
+    filename: &str,
 ) -> Json<Inventory> {
     warn!("Getting something on /inventory");
     warn!("Filtering on tags {:?}", filter_tags);
@@ -86,6 +92,8 @@ async fn inventory(
             &filter_tags,
             aws_region,
             include_block_storage.unwrap_or(false),
+            simulation.unwrap_or(false),
+            filename,
         )
         .await
         .unwrap(),
@@ -99,7 +107,7 @@ async fn inventory(
 /// Example query: http://localhost:8000/impacts?aws_region=eu-west-3&filter_tag=Name=boatest&filter_tag=OtherTag=other-value&use_duration_hours=1.0
 #[openapi(tag = "impacts")]
 #[get(
-    "/impacts?<aws_region>&<filter_tags>&<use_duration_hours>&<verbose_output>&<include_block_storage>"
+    "/impacts?<aws_region>&<filter_tags>&<use_duration_hours>&<verbose_output>&<include_block_storage>&<simulation>&<filename>"
 )]
 async fn impacts(
     _config: &State<Config>,
@@ -108,6 +116,8 @@ async fn impacts(
     use_duration_hours: Option<f32>,
     verbose_output: Option<bool>,
     include_block_storage: Option<bool>,
+    simulation: Option<bool>,
+    filename: &str,
 ) -> Json<ResourcesWithImpacts> {
     let hours_use_time = use_duration_hours.unwrap_or(1.0);
     //let hours_use_time: f32 = 1.0;
@@ -123,6 +133,8 @@ async fn impacts(
         &_config.boavizta_url,
         verbose_output.unwrap_or(false),
         include_block_storage.unwrap_or(false),
+        simulation.unwrap_or(false),
+        filename,
     )
     .await
     .unwrap();

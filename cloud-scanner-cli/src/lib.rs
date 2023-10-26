@@ -6,6 +6,7 @@
 use crate::model::{ExecutionStatistics, ResourcesWithImpacts};
 use crate::usage_location::*;
 use aws_inventory::*;
+use aws_inventory_from_file::*;
 use boavizta_api_v1::*;
 use cloud_inventory::*;
 use cloud_resource::*;
@@ -22,6 +23,7 @@ use model::Inventory;
 use pkg_version::*;
 use std::time::{Duration, Instant};
 pub mod aws_inventory;
+pub mod aws_inventory_from_file;
 pub mod boavizta_api_v1;
 pub mod cloud_inventory;
 pub mod cloud_resource;
@@ -40,14 +42,15 @@ async fn standard_scan(
     api_url: &str,
     verbose: bool,
     include_block_storage: bool,
+    simulation: bool,
+    filename: &str,
 ) -> Result<ResourcesWithImpacts> {
     let start = Instant::now();
 
-    let inventory: AwsInventory = AwsInventory::new(aws_region).await;
-    let cloud_resources: Vec<CloudResource> = inventory
-        .list_resources(tags, include_block_storage)
-        .await
-        .context("Cannot perform resources inventory")?;
+    let cloud_resources: Vec<CloudResource> =
+        get_cloud_resources(tags, aws_region, include_block_storage, simulation, filename)
+            .await
+            .context("Cannot perform resources inventory")?;
 
     let inventory_duration = start.elapsed();
 
@@ -77,6 +80,37 @@ async fn standard_scan(
     Ok(res)
 }
 
+/// Returns cloud resources for AwsInventory
+async fn get_cloud_resources(
+    tags: &[String],
+    aws_region: &str,
+    include_block_storage: bool,
+    simulation: bool,
+    filename: &str,
+) -> Result<Vec<CloudResource>> {
+    let mut inventory:Inventory = Inventory {
+        resources: vec![],
+        execution_statistics: ExecutionStatistics {
+            inventory_duration: Default::default(),
+            impact_duration: Default::default(),
+            total_duration: Default::default(),
+        }
+    };
+
+    if simulation {
+        inventory = CloudInventory::new(aws_region, filename).await;
+    } else {
+        inventory = CloudInventory::new(aws_region, filename).await;
+    }
+
+    let cloud_resources: Vec<CloudResource> = inventory
+        .list_resources(tags, include_block_storage, simulation)
+        .await
+        .context("Cannot perform resources inventory")?;
+
+    Ok(cloud_resources)
+}
+
 /// Returns default impacts as json string
 pub async fn get_default_impacts_as_json_string(
     hours_use_time: &f32,
@@ -85,6 +119,8 @@ pub async fn get_default_impacts_as_json_string(
     api_url: &str,
     verbose: bool,
     include_block_storage: bool,
+    simulation: bool,
+    filename: &str,
 ) -> Result<String> {
     let instances_with_impacts = standard_scan(
         hours_use_time,
@@ -93,6 +129,8 @@ pub async fn get_default_impacts_as_json_string(
         api_url,
         verbose,
         include_block_storage,
+        simulation,
+        filename,
     )
     .await
     .context("Cannot perform standard scan")?;
@@ -107,6 +145,8 @@ pub async fn get_default_impacts_as_metrics(
     aws_region: &str,
     api_url: &str,
     include_storage: bool,
+    simulation: bool,
+    filename: &str,
 ) -> Result<String> {
     let instances_with_impacts = standard_scan(
         hours_use_time,
@@ -115,6 +155,8 @@ pub async fn get_default_impacts_as_metrics(
         api_url,
         false,
         include_storage,
+        simulation,
+        filename,
     )
     .await
     .context("Cannot perform standard scan")?;
@@ -146,6 +188,8 @@ pub async fn print_default_impacts_as_json(
     api_url: &str,
     verbose: bool,
     include_storage: bool,
+    simulation: bool,
+    filename: &str,
 ) -> Result<()> {
     let j = get_default_impacts_as_json_string(
         hours_use_time,
@@ -154,6 +198,8 @@ pub async fn print_default_impacts_as_json(
         api_url,
         verbose,
         include_storage,
+        simulation,
+        filename,
     )
     .await?;
     println!("{}", j);
@@ -167,6 +213,8 @@ pub async fn print_default_impacts_as_metrics(
     aws_region: &str,
     api_url: &str,
     include_block_storage: bool,
+    simulation: bool,
+    filename: &str,
 ) -> Result<()> {
     let metrics = get_default_impacts_as_metrics(
         hours_use_time,
@@ -174,6 +222,8 @@ pub async fn print_default_impacts_as_metrics(
         aws_region,
         api_url,
         include_block_storage,
+        simulation,
+        filename,
     )
     .await?;
     println!("{}", metrics);
@@ -184,11 +234,36 @@ pub async fn get_inventory_as_json(
     tags: &[String],
     aws_region: &str,
     include_block_storage: bool,
+    simulation: bool,
+    filename: &str,
 ) -> Result<String> {
     let start = Instant::now();
-    let inventory: AwsInventory = AwsInventory::new(aws_region).await;
+    let inventory: AwsInventory = AwsInventory::new(aws_region, filename).await;
     let cloud_resources: Vec<CloudResource> = inventory
-        .list_resources(tags, include_block_storage)
+        .list_resources(tags, include_block_storage, simulation)
+        .await
+        .context("Cannot perform inventory.")?;
+    let stats = ExecutionStatistics {
+        inventory_duration: start.elapsed(),
+        impact_duration: Duration::from_millis(0),
+        total_duration: start.elapsed(),
+    };
+    warn!("{:?}", stats);
+    serde_json::to_string(&cloud_resources).context("Cannot format inventory as json")
+}
+
+pub async fn get_inventory_from_file_as_json(
+    tags: &[String],
+    aws_region: &str,
+    include_block_storage: bool,
+    filename: &str,
+    simulation: bool,
+) -> Result<String> {
+    let start = Instant::now();
+    //let inventory: AwsInventory = AwsInventory::new(aws_region).await;
+    let inventory: AwsInventoryFromFile = AwsInventoryFromFile::new(aws_region, filename).await;
+    let cloud_resources: Vec<CloudResource> = inventory
+        .list_resources(tags, include_block_storage, simulation)
         .await
         .context("Cannot perform inventory.")?;
     let stats = ExecutionStatistics {
@@ -204,11 +279,13 @@ pub async fn get_inventory(
     tags: &[String],
     aws_region: &str,
     include_block_storage: bool,
+    simulation: bool,
+    filename: &str,
 ) -> Result<Inventory> {
     let start = Instant::now();
-    let aws_inventory: AwsInventory = AwsInventory::new(aws_region).await;
+    let aws_inventory: AwsInventory = AwsInventory::new(aws_region, filename).await;
     let cloud_resources: Vec<CloudResource> = aws_inventory
-        .list_resources(tags, include_block_storage)
+        .list_resources(tags, include_block_storage, simulation)
         .await
         .context("Cannot perform inventory.")?;
     let stats = ExecutionStatistics {
@@ -230,9 +307,26 @@ pub async fn show_inventory(
     tags: &[String],
     aws_region: &str,
     include_block_storage: bool,
+    simulation: bool,
+    filename: &str
 ) -> Result<()> {
     let json_inventory: String =
-        get_inventory_as_json(tags, aws_region, include_block_storage).await?;
+        get_inventory_as_json(tags, aws_region, include_block_storage, simulation, filename).await?;
+    println!("{}", json_inventory);
+    Ok(())
+}
+
+/// Read list instances and metadata from file input
+pub async fn read_inventory(
+    tags: &[String],
+    aws_region: &str,
+    include_block_storage: bool,
+    filename: &str,
+    simulation: bool,
+) -> Result<()> {
+    let json_inventory: String =
+        get_inventory_from_file_as_json(tags, aws_region, include_block_storage, filename, simulation).await?;
+    // create metethod get inventory as json from file
     println!("{}", json_inventory);
     Ok(())
 }

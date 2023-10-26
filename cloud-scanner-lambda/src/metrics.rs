@@ -55,10 +55,16 @@ async fn summary(event: Request) -> Result<impl IntoResponse, Error> {
         None => false,
     };
 
+    let simulation: bool = match query_string_parameters.first("simulation") {
+        Some(simulation_string) => simulation_string.parse().unwrap_or(false),
+        None => false,
+    };
+
     println!("Using fixed use time of 1 hour.");
     println!("Using aws_region: {}", aws_region);
     println!("Using tag filers: {:?}", filter_tags);
     println!("Include block storage: {:?}", include_block_storage);
+    println!("Is simulation: {}", simulation);
 
     let impacts: String = cloud_scanner_cli::get_default_impacts_as_metrics(
         &1.0,
@@ -66,6 +72,7 @@ async fn summary(event: Request) -> Result<impl IntoResponse, Error> {
         aws_region,
         &config.boavizta_api_url,
         include_block_storage,
+        simulation,
     )
     .await
     .unwrap();

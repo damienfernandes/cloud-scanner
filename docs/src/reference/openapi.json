@@ -31,6 +31,14 @@
                 "type": "string"
               }
             }
+          },
+          {
+            "name": "simulation",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -73,6 +81,14 @@
                 "type": "string"
               }
             }
+          },
+          {
+              "name": "simulation",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
           }
         ],
         "responses": {

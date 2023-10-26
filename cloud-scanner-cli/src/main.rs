@@ -30,6 +30,14 @@ struct Arguments {
     /// Returns results as OpenMetrics (Prometheus) instead of json
     #[arg(short = 'm', long)]
     as_metrics: bool,
+
+    /// Make simulation
+    #[arg(short = 's', long)]
+    simulation: bool,
+
+    /// Read a json file instead of AWS value
+    #[arg(short = 'f', long)]
+    filename: Option<String>,
 }
 
 #[derive(Subcommand, Debug)]
@@ -87,6 +95,20 @@ fn set_api_url(optional_url: Option<String>) -> String {
     }
 }
 
+fn set_filename(optional_filename: Option<String>) -> String {
+    match optional_filename {
+        Some(filename_arg) => {
+            info!("Using region: {}", filename_arg);
+            filename_arg
+        }
+        None => {
+            let default_filename = "input.json".to_string();
+            warn!("Using default filename: {}", default_filename);
+            default_filename
+        }
+    }
+}
+
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Arguments::parse();
@@ -101,6 +123,8 @@ async fn main() -> Result<()> {
 
     let api_url: String = set_api_url(args.boavizta_api_url);
 
+    let filename = set_filename(args.filename);
+
     match args.cmd {
         SubCommand::Estimate {
             hours_use_time,
@@ -114,6 +138,8 @@ async fn main() -> Result<()> {
                     &region,
                     &api_url,
                     include_block_storage,
+                    args.simulation,
+                    &filename,
                 )
                 .await?
             } else {
@@ -124,6 +150,8 @@ async fn main() -> Result<()> {
                     &api_url,
                     output_verbose_json,
                     include_block_storage,
+                    args.simulation,
+                    &filename,
                 )
                 .await?
             }
@@ -132,8 +160,13 @@ async fn main() -> Result<()> {
             include_block_storage,
         } => {
             info!("Using filter tags {:?}", &args.filter_tags);
-            cloud_scanner_cli::show_inventory(&args.filter_tags, &region, include_block_storage)
-                .await?
+            if args.simulation {
+                cloud_scanner_cli::read_inventory(&args.filter_tags, &region, include_block_storage, &filename, args.simulation)
+                    .await?
+            } else {
+                cloud_scanner_cli::show_inventory(&args.filter_tags, &region, include_block_storage, args.simulation)
+                    .await?
+            }
         }
         SubCommand::Serve {} => cloud_scanner_cli::serve_metrics(&api_url).await?,
     }

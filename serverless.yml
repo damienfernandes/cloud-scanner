@@ -50,6 +50,7 @@ functions:
                 aws_region: false
                 verbose_output: false
                 include_block_storage: false
+                simulation: false
   metrics:
     handler: "cloud-scanner-lambda.bootstrap-metrics"
     events:
@@ -61,4 +62,5 @@ functions:
               querystrings:
                 aws_region: false
                 include_block_storage: false
+                simulation: false
 

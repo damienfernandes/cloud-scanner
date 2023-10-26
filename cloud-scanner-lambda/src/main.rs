@@ -74,9 +74,15 @@ async fn scan(event: Request) -> Result<impl IntoResponse, Error> {
         None => false,
     };
 
+    let simulation: bool = match query_string_parameters.first("simulation") {
+        Some(simulation_string) => simulation_string.parse().unwrap_or(false),
+        None => false,
+    };
+
     println!("Using use time of {}", hours_use_time);
     println!("Using aws_region {}", aws_region);
     println!("Using tag filers {:?}", filter_tags);
+    println!("Is simulation {:?}", simulation);
 
     let impacts: String = cloud_scanner_cli::get_default_impacts_as_json_string(
         &hours_use_time,
@@ -85,6 +91,7 @@ async fn scan(event: Request) -> Result<impl IntoResponse, Error> {
         &config.boavizta_api_url,
         verbose_output,
         include_block_storage,
+        simulation,
     )
     .await
     .unwrap();

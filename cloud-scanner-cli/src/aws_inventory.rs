@@ -26,10 +26,32 @@ pub struct AwsInventory {
     cloudwatch_client: aws_sdk_cloudwatch::Client,
 }
 
-impl AwsInventory {
+#[async_trait]
+impl CloudInventory for AwsInventory {
+    /// list resources
+    async fn list_resources(
+        &self,
+        tags: &[String],
+        include_block_storage: bool,
+        simulation: bool,
+    ) -> Result<Vec<CloudResource>> {
+        let mut inventory: Vec<CloudResource> = Vec::new();
+
+        /// TODO : get data from file simulation
+        println!("WARNING: TODO get data from file simulation");
+
+        /// else from direct read
+        let mut instances = self.clone().get_instances_with_usage_data(tags, simulation).await?;
+        inventory.append(&mut instances);
+        if include_block_storage {
+            let mut volumes = self.clone().get_volumes_with_usage_data(tags, simulation).await?;
+            inventory.append(&mut volumes);
+        }
+        Ok(inventory)
+    }
     /// Creates an AWS inventory.
     /// Initializes it with a specific region and configures the SDK's that will query your account to perform the inventory of resources.
-    pub async fn new(aws_region: &str) -> Self {
+    async fn new(aws_region: &str, filename: &str) -> Self {
         let shared_config = Self::load_aws_config(aws_region).await;
         AwsInventory {
             aws_region: String::from(aws_region),
@@ -61,6 +83,10 @@ impl AwsInventory {
         }
     }
 
+    async fn get_data_from_file(filename: &str) {
+        unimplemented!("Not implemented yet");
+    }
+
     /// Convert AWS tags into Cloud Scanner tags
     fn cloud_resource_tags_from_aws_tags(
         aws_tags: Option<&[aws_sdk_ec2::types::Tag]>,
@@ -84,7 +110,7 @@ impl AwsInventory {
     }
 
     /// Perform inventory of all aws instances of the region
-    async fn get_instances_with_usage_data(&self, tags: &[String]) -> Result<Vec<CloudResource>> {
+    async fn get_instances_with_usage_data(&self, tags: &[String], simulation: bool) -> Result<Vec<CloudResource>> {
         let instances: Vec<Instance> = self
             .clone()
             .list_instances(tags)
@@ -260,7 +286,7 @@ impl AwsInventory {
     }
 
     /// Perform inventory of all aws volumes of the region
-    async fn get_volumes_with_usage_data(&self, tags: &[String]) -> Result<Vec<CloudResource>> {
+    async fn get_volumes_with_usage_data(&self, tags: &[String], simulation: bool) -> Result<Vec<CloudResource>> {
         let location = UsageLocation::from(self.aws_region.as_str());
         let volumes = self.clone().list_volumes(tags).await.unwrap();
         let mut resources: Vec<CloudResource> = Vec::new();
@@ -305,25 +331,7 @@ impl AwsInventory {
     }
 }
 
-#[async_trait]
-impl CloudInventory for AwsInventory {
-    /// list resources
-    async fn list_resources(
-        &self,
-        tags: &[String],
-        include_block_storage: bool,
-    ) -> Result<Vec<CloudResource>> {
-        let mut inventory: Vec<CloudResource> = Vec::new();
 
-        let mut instances = self.clone().get_instances_with_usage_data(tags).await?;
-        inventory.append(&mut instances);
-        if include_block_storage {
-            let mut volumes = self.clone().get_volumes_with_usage_data(tags).await?;
-            inventory.append(&mut volumes);
-        }
-        Ok(inventory)
-    }
-}
 
 #[cfg(test)]
 mod tests {
@@ -334,10 +342,10 @@ mod tests {
     #[tokio::test]
     #[ignore]
     async fn inventory_should_return_correct_number_of_instances() {
-        let inventory: AwsInventory = AwsInventory::new("eu-west-1").await;
+        let inventory: AwsInventory = AwsInventory::new("eu-west-1", "").await;
         let filtertags: Vec<String> = Vec::new();
         let res: Vec<CloudResource> = inventory
-            .get_instances_with_usage_data(&filtertags)
+            .get_instances_with_usage_data(&filtertags, false)
             .await
             .context("Failed to list")
             .unwrap();
@@ -368,7 +376,7 @@ mod tests {
     #[tokio::test]
     #[ignore]
     async fn get_cpu_usage_metrics_of_running_instance_should_return_right_number_of_data_points() {
-        let inventory: AwsInventory = AwsInventory::new("eu-west-1").await;
+        let inventory: AwsInventory = AwsInventory::new("eu-west-1", "").await;
         let res = inventory
             .get_average_cpu_usage_of_last_10_minutes(&RUNNING_INSTANCE_ID)
             .await
@@ -386,7 +394,7 @@ mod tests {
     #[tokio::test]
     #[ignore]
     async fn test_get_instance_usage_metrics_of_shutdown_instance() {
-        let inventory: AwsInventory = AwsInventory::new("eu-west-1").await;
+        let inventory: AwsInventory = AwsInventory::new("eu-west-1", "").await;
         let instance_id = "i-03e0b3b1246001382";
         let res = inventory
             .get_average_cpu_usage_of_last_10_minutes(instance_id)
@@ -399,7 +407,7 @@ mod tests {
     #[tokio::test]
     #[ignore]
     async fn test_get_instance_usage_metrics_of_non_existing_instance() {
-        let inventory: AwsInventory = AwsInventory::new("eu-west-1").await;
+        let inventory: AwsInventory = AwsInventory::new("eu-west-1", "").await;
         let instance_id = "IDONOTEXISTS";
         let res = inventory
             .get_average_cpu_usage_of_last_10_minutes(instance_id)
@@ -413,7 +421,7 @@ mod tests {
     #[ignore]
     async fn test_average_cpu_load_of_running_instance_is_not_zero() {
         // This instance  needs to be running for the test to pass
-        let inventory: AwsInventory = AwsInventory::new("eu-west-1").await;
+        let inventory: AwsInventory = AwsInventory::new("eu-west-1", "").await;
 
         let avg_cpu_load = inventory
             .get_average_cpu(&RUNNING_INSTANCE_ID)
@@ -433,7 +441,7 @@ mod tests {
     #[ignore]
     async fn test_average_cpu_load_of_non_existing_instance_is_zero() {
         let instance_id = "IDONOTEXISTS";
-        let inventory: AwsInventory = AwsInventory::new("eu-west-1").await;
+        let inventory: AwsInventory = AwsInventory::new("eu-west-1", "").await;
         let res = inventory.get_average_cpu(instance_id).await.unwrap();
         assert_eq!(0 as f64, res);
     }
@@ -441,7 +449,7 @@ mod tests {
     #[tokio::test]
     #[ignore]
     async fn test_average_cpu_load_of_shutdown_instance_is_zero() {
-        let inventory: AwsInventory = AwsInventory::new("eu-west-1").await;
+        let inventory: AwsInventory = AwsInventory::new("eu-west-1", "").await;
         let instance_id = "i-03e0b3b1246001382";
         let res = inventory.get_average_cpu(instance_id).await.unwrap();
         assert_eq!(0 as f64, res);
@@ -450,7 +458,7 @@ mod tests {
     #[tokio::test]
     #[ignore]
     async fn returns_the_right_number_of_volumes() {
-        let inventory: AwsInventory = AwsInventory::new("eu-west-1").await;
+        let inventory: AwsInventory = AwsInventory::new("eu-west-1", "").await;
         let filtertags: Vec<String> = Vec::new();
         let res = inventory.list_volumes(&filtertags).await.unwrap();
         assert_eq!(4, res.len());
