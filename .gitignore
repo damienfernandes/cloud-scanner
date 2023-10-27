@@ -3,4 +3,6 @@ target/
 node_modules
 .serverless
 .env
+.vsc
+.idea
 .vscode
