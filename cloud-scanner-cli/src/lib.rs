@@ -3,6 +3,7 @@
 //!  A command line application that performs inventory of your cloud account and combines it with Boavizta API  to return an estimation of its environmental impact.
 //!
 
+use std::future::Future;
 use crate::model::{ExecutionStatistics, ResourcesWithImpacts};
 use crate::usage_location::*;
 use aws_inventory::*;
@@ -13,6 +14,7 @@ use cloud_resource::*;
 use impact_provider::ImpactProvider;
 use impact_provider::ImpactsSummary;
 use metric_exporter::*;
+use std::pin::Pin;
 
 #[macro_use]
 extern crate rocket;
@@ -88,27 +90,39 @@ async fn get_cloud_resources(
     simulation: bool,
     filename: &str,
 ) -> Result<Vec<CloudResource>> {
-    let mut inventory:Inventory = Inventory {
-        resources: vec![],
-        execution_statistics: ExecutionStatistics {
-            inventory_duration: Default::default(),
-            impact_duration: Default::default(),
-            total_duration: Default::default(),
-        }
-    };
+    /*let mut inventory = CloudInventory::new(aws_region, filename);
 
     if simulation {
-        inventory = CloudInventory::new(aws_region, filename).await;
+        inventory = AwsInventoryFromFile::new(aws_region, filename);
     } else {
-        inventory = CloudInventory::new(aws_region, filename).await;
-    }
+        inventory = AwsInventory::new(aws_region, filename);
+    }*/
 
-    let cloud_resources: Vec<CloudResource> = inventory
-        .list_resources(tags, include_block_storage, simulation)
-        .await
-        .context("Cannot perform resources inventory")?;
+    let cloud_resources: Vec<CloudResource> =
+        returns_cloudinventory(tags, aws_region, include_block_storage,simulation, filename).await?;
 
     Ok(cloud_resources)
+}
+
+async fn returns_cloudinventory(
+    tags: &[String],
+    aws_region: &str,
+    include_block_storage: bool,
+    simulation: bool,
+    filename: &str,
+) -> Result<Vec<CloudResource>> {
+
+    if simulation {
+        let inventory: AwsInventoryFromFile = AwsInventoryFromFile::new(aws_region, filename).await;
+        return inventory
+            .list_resources(tags, include_block_storage, simulation).await
+            .context("Cannot perform inventory.");
+    } else {
+        let inventory: AwsInventory = AwsInventory::new(aws_region, filename).await;
+        return inventory
+            .list_resources(tags, include_block_storage, simulation).await
+            .context("Cannot perform inventory.");
+    }
 }
 
 /// Returns default impacts as json string
@@ -321,8 +335,8 @@ pub async fn read_inventory(
     tags: &[String],
     aws_region: &str,
     include_block_storage: bool,
-    filename: &str,
     simulation: bool,
+    filename: &str,
 ) -> Result<()> {
     let json_inventory: String =
         get_inventory_from_file_as_json(tags, aws_region, include_block_storage, filename, simulation).await?;

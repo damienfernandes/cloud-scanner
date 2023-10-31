@@ -37,9 +37,6 @@ impl CloudInventory for AwsInventory {
     ) -> Result<Vec<CloudResource>> {
         let mut inventory: Vec<CloudResource> = Vec::new();
 
-        /// TODO : get data from file simulation
-        println!("WARNING: TODO get data from file simulation");
-
         /// else from direct read
         let mut instances = self.clone().get_instances_with_usage_data(tags, simulation).await?;
         inventory.append(&mut instances);

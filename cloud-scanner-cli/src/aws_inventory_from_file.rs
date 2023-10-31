@@ -1,66 +1,21 @@
 use crate::cloud_inventory::CloudInventory;
 use crate::cloud_resource::*;
 
-use anyhow::Result;
+use anyhow::{Context, Result};
 use serde::Deserialize;
 use serde_json;
 use std::fs::File;
 use std::io::Read;
-use std::ptr::null;
 use std::time::Instant;
+use std::vec::Vec;
 use aws_sdk_cloudwatch::operation::get_metric_statistics::GetMetricStatisticsOutput;
 use aws_sdk_ec2::types::Volume;
-use rocket_okapi::okapi::schemars::schema::SingleOrVec::Vec;
-
-#[derive(Debug, Deserialize)]
-struct Location {
-    aws_region: String,
-    iso_country_code: String,
-}
-
-#[derive(Debug, Deserialize)]
-struct Usage {
-    average_cpu_load: f64,
-    usage_duration_seconds: i32,
-}
-
-#[derive(Debug, Deserialize)]
-struct UsageBlockStorage {
-    size_gb: f64,
-    usage_duration_seconds: i32,
-}
-
-#[derive(Debug, Deserialize)]
-struct Instance {
-    instance_type: String,
-    usage: Usage,
-}
-
-#[derive(Debug, Deserialize)]
-struct BlockStorage {
-    storage_type: String,
-    usage: UsageBlockStorage,
-}
+use crate::cloud_resource::ResourceDetails::Instance;
 
 #[derive(Debug, Deserialize)]
 struct Tag {
     key: String,
     value: String,
-}
-
-#[derive(Debug, Deserialize)]
-struct ResourceDetails {
-    instance: Option<Instance>,
-    block_storage: Option<BlockStorage>,
-}
-
-#[derive(Debug, Deserialize)]
-struct Item {
-    provider: String,
-    id: String,
-    location: Location,
-    resource_details: ResourceDetails,
-    tags: Vec<Tag>,
 }
 
 ///  An inventory of AWS resources
@@ -112,16 +67,66 @@ impl CloudInventory for AwsInventoryFromFile {
         file.read_to_string(&mut contents).expect("Unable to read file");
 
         // Deserialize the JSON data into a Vec<Item>
-        let items: Vec<Item> = serde_json::from_str(&contents).expect("Unable to parse JSON");
+        let items: Vec<CloudResource> = serde_json::from_str(&contents).expect("Unable to parse JSON");
 
         // Print the data
         for item in &items {
-            println!("Provider: {}", item.provider);
+            println!("Provider: {:?}", item.provider);
             println!("ID: {}", item.id);
             println!("AWS Region: {}", item.location.aws_region);
             println!("ISO Country Code: {}", item.location.iso_country_code);
 
-            if let Some(details) = &item.resource_details.instance {
+
+            let resource_details = &item.resource_details;
+            println!("Resource details: {:?}", resource_details);
+
+            /*match resource_details {
+                ResourceDetails::Instance {
+                    instance_type,
+                    usage,
+                } => {
+                    println!("Instance Type: {}", resource_details.instance_type);
+                    println!("Average CPU Load: {}", resource_details.usage.average_cpu_load);
+                    println!("Usage Duration (seconds): {}", resource_details.usage.usage_duration_seconds);
+
+                }
+                    let mut usage_cloud: UsageCloud = UsageCloud::new();
+
+                    //usage_cloud.hours_life_time = Some(usage_duration_hours.to_owned());
+                    usage_cloud.usage_location = Some(cr.location.iso_country_code.to_owned());
+
+                    if let Some(instance_usage) = usage {
+                        usage_cloud.time_workload = Some(instance_usage.average_cpu_load as f32);
+                    }
+
+                    let mut cloud: Cloud = Cloud::new();
+                    cloud.provider = Some(String::from("aws"));
+                    cloud.instance_type = Some(instance_type.clone());
+                    cloud.usage = Some(Box::new(usage_cloud));
+
+                    let res = cloud_api::instance_cloud_impact_v1_cloud_instance_post(
+                        &self.configuration,
+                        Some(verbose),
+                        Some(usage_duration_hours.to_owned()),
+                        Some(criteria),
+                        Some(cloud),
+                    )
+                        .await;
+
+                    match res {
+                        Ok(res) => Some(res),
+                        Err(e) => {
+                            warn!(
+                            "Warning: Cannot get impacts from API for instance type {}: {}",
+                            instance_type, e
+                        );
+                            None
+                        }
+                    }
+                }
+
+
+                if let Some(details) = &item.resource_details::Instance {
                 println!("Instance Type: {}", details.instance_type);
                 println!("Average CPU Load: {}", details.usage.average_cpu_load);
                 println!("Usage Duration (seconds): {}", details.usage.usage_duration_seconds);
@@ -135,7 +140,7 @@ impl CloudInventory for AwsInventoryFromFile {
             for tag in &item.tags {
                 println!("  Key: {}", tag.key);
                 println!("  Value: {}", tag.value);
-            }
+            }*/
 
             println!("-------------------------");
         }
@@ -154,6 +159,8 @@ impl CloudInventory for AwsInventoryFromFile {
     /// Perform inventory of all aws instances of the region
     async fn get_instances_with_usage_data(&self, tags: &[String], simulation: bool) -> Result<Vec<CloudResource>> {
         // TODO DFE: Not implemented yet
+
+
 
         /*let instances: Vec<Instance> = self
             .clone()
@@ -212,7 +219,7 @@ impl CloudInventory for AwsInventoryFromFile {
         Ok(inventory)
     }
 
-    async fn list_instances(self, _tags: &[String]) -> Result<Vec<Instance>> {
+    async fn list_instances(self, _tags: &[String]) -> Result<Vec<aws_sdk_ec2::types::Instance>> {
         unimplemented!("Not implemented yet");
     }
 

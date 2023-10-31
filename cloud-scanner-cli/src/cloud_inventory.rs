@@ -6,6 +6,7 @@ use crate::cloud_resource::*;
 use anyhow::Result;
 use async_trait::async_trait;
 use aws_sdk_cloudwatch::operation::get_metric_statistics::GetMetricStatisticsOutput;
+use std;
 use aws_sdk_ec2::types::{Instance, Volume};
 
 /// A that you should implement to support vendor-specific inventory of cloud resources.
@@ -14,13 +15,7 @@ use aws_sdk_ec2::types::{Instance, Volume};
 #[async_trait]
 pub trait CloudInventory {
     /// Returns a list list of cloud resources
-    async fn list_resources(
-        &self,
-        tags: &[String],
-        include_block_storage: bool,
-        simulation: bool,
-    ) -> Result<Vec<CloudResource>>;
-
+    async fn list_resources(&self, tags: &[String], include_block_storage: bool, simulation: bool) -> Result<Vec<CloudResource>>;
     async fn new(aws_region: &str, filename: &str) -> Self;
     async fn get_data_from_file(filename: &str);
     async fn load_aws_config(aws_region: &str) -> aws_types::sdk_config::SdkConfig;

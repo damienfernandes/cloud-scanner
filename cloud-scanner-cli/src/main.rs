@@ -161,10 +161,10 @@ async fn main() -> Result<()> {
         } => {
             info!("Using filter tags {:?}", &args.filter_tags);
             if args.simulation {
-                cloud_scanner_cli::read_inventory(&args.filter_tags, &region, include_block_storage, &filename, args.simulation)
+                cloud_scanner_cli::read_inventory(&args.filter_tags, &region, include_block_storage, args.simulation, &filename)
                     .await?
             } else {
-                cloud_scanner_cli::show_inventory(&args.filter_tags, &region, include_block_storage, args.simulation)
+                cloud_scanner_cli::show_inventory(&args.filter_tags, &region, include_block_storage, args.simulation, &filename)
                     .await?
             }
         }
