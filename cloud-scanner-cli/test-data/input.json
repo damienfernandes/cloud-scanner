@@ -1,0 +1,3220 @@
+[
+  {
+    "provider": "AWS",
+    "id": "i-0de1e01af1a5c0096",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "Instance": {
+        "instance_type": "t3a.small",
+        "usage": {
+          "average_cpu_load": 3.8291571967852667,
+          "usage_duration_seconds": 300
+        }
+      }
+    },
+    "tags": [
+      {
+        "key": "Name",
+        "value": "dynatrace-active-gate-sandbox"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-04db0891302a05bb3",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 32,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-c75d45a0-1f49-401b-9b1b-4bb005661814"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-c75d45a0-1f49-401b-9b1b-4bb005661814"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "cassandra"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-2"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0028a3acecc77fc08",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-abba5b8b-a7fd-4459-b2c7-14a110b39086"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-2"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-abba5b8b-a7fd-4459-b2c7-14a110b39086"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0c4b5bc9edaebe0ed",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-default-sts-1"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-49f4abd3-2557-434e-94d6-417ce8550eb2"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-49f4abd3-2557-434e-94d6-417ce8550eb2"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0a3dc4993e72a1693",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-833bf345-18c1-4ddf-99e9-8dfed59887c2"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-default-sts-2"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-833bf345-18c1-4ddf-99e9-8dfed59887c2"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0a28b4e28ff9e9a2f",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-23f82b44-09a6-46e5-9211-85ac739a9cb5"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-r3-sts-0"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-23f82b44-09a6-46e5-9211-85ac739a9cb5"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0c25f9b058261885e",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-21d912d7-f973-45a1-8830-a3448c38a675"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-r1-sts-0"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-21d912d7-f973-45a1-8830-a3448c38a675"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0e657fa1fccc11f65",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-9da4d6bc-561c-4ab0-9b8c-522d7d552f8a"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-9da4d6bc-561c-4ab0-9b8c-522d7d552f8a"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r2-sts-0"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0780aa57f5c3cef95",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-1fa002b5-edb3-46c6-977b-122274fc6e97"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r2-sts-0"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-1fa002b5-edb3-46c6-977b-122274fc6e97"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-05e09bd1e4c8abfc2",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-0"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-1843f0fb-388c-42c1-9fdb-dadc09e89043"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-1843f0fb-388c-42c1-9fdb-dadc09e89043"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0416f7fe53d45fe60",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-2e161446-5b4c-4b42-aa5b-62604e964621"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-1"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-2e161446-5b4c-4b42-aa5b-62604e964621"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-077ffba6ecea722fb",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-401903ad-e9f6-41bc-8c47-12428b7497bc"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-401903ad-e9f6-41bc-8c47-12428b7497bc"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-2"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0f2dff2b455fdcdb4",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-c8ab25f5-ffe0-42dd-8ca6-6b88aaf96a46"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-c8ab25f5-ffe0-42dd-8ca6-6b88aaf96a46"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r3-sts-0"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-09665998021bb399e",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-5fecc670-9700-4756-ad90-45271fd98848"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-5fecc670-9700-4756-ad90-45271fd98848"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-0"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0dec408257d5f6b5c",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-254a0e5d-d21b-4425-9bdf-c688c5dc04b1"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-254a0e5d-d21b-4425-9bdf-c688c5dc04b1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-0"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0300aaf10094b9c62",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 32,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-a9681fbe-20c7-4a83-8985-0cd316eb5af0"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "cassandra"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-0"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-a9681fbe-20c7-4a83-8985-0cd316eb5af0"
+      },
+      {
+        "key": "Project",
+        "value": "T303M1"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0293aef54df2150c9",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 128,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-d37e475b-717e-4ea4-9aa4-ce3362475c78"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "dxp-monitoring-thanos-compactor"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "monitoring"
+      },
+      {
+        "key": "Project",
+        "value": "T303M1"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-d37e475b-717e-4ea4-9aa4-ce3362475c78"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0298d35c545bc1cb0",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 8,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-b386696a-1735-458f-9689-b25eeba6b576"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "monitoring"
+      },
+      {
+        "key": "Project",
+        "value": "T303M1"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "data-dxp-monitoring-thanos-storegateway-0"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-b386696a-1735-458f-9689-b25eeba6b576"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-010149eb021489b05",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 128,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "T303M1"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-ac5f311a-3b62-4c52-b0ab-5692291cdace"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "monitoring"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-ac5f311a-3b62-4c52-b0ab-5692291cdace"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "storage-volume-dxp-monitoring-prometheus-server-0"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-05f5078c7c8197d93",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 8,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-be11b343-acc6-4f18-a035-c14187ea6e7d"
+      },
+      {
+        "key": "Project",
+        "value": "T303M1"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-be11b343-acc6-4f18-a035-c14187ea6e7d"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "data-etcd-0"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "file-management"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0fc2f3f575fd67006",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 1,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "T303M1"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-ad3d0357-2538-46cd-9317-6b520fcb648e"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "eventbus-obaas-2-argo-eventbus-js-vol-eventbus-obaas-2-argo-eventbus-js-2"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "obaas-2"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-ad3d0357-2538-46cd-9317-6b520fcb648e"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-07ec9f0a66b77ebca",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 1,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-2a82e0f8-6158-440d-bba6-802b5a061dda"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-2a82e0f8-6158-440d-bba6-802b5a061dda"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "obaas-2"
+      },
+      {
+        "key": "Project",
+        "value": "T303M1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "eventbus-obaas-2-argo-eventbus-js-vol-eventbus-obaas-2-argo-eventbus-js-1"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-03d5a90a2f03495b2",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 32,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-ff36611e-4019-4d26-bf66-bdd3e542d7e6"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-0"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "cassandra"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-ff36611e-4019-4d26-bf66-bdd3e542d7e6"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0aa5c5997ecaa6b12",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-9e9042b4-1c69-4e61-9d5c-211705caebe4"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-9e9042b4-1c69-4e61-9d5c-211705caebe4"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-082f03bfe313f958b",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-634c4209-5d46-440a-8930-fd2220d5fc8b"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-634c4209-5d46-440a-8930-fd2220d5fc8b"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-default-sts-2"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-03785b13da0c0216e",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-c32d3672-8c15-4f02-8789-af860a4f12e0"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-default-sts-1"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-c32d3672-8c15-4f02-8789-af860a4f12e0"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-00a63a3382aa85a42",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-ff6d01e2-6185-41d6-95ce-1699127139ad"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-ff6d01e2-6185-41d6-95ce-1699127139ad"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-r2-sts-0"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0556d0255ffc8fa8b",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-87f18afc-2cdb-4896-baa3-f14ee8bbcb19"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-r3-sts-0"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-87f18afc-2cdb-4896-baa3-f14ee8bbcb19"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-03b96f5804e7f1999",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-480e75ee-7061-4efe-a309-a0f6ec8631d5"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-480e75ee-7061-4efe-a309-a0f6ec8631d5"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-0"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0626a14ed56b4b77e",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r3-sts-0"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-e5f23107-1b7d-40f5-b62c-01001899d02e"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-e5f23107-1b7d-40f5-b62c-01001899d02e"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-03ab1a8ab6513aee4",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-84d1fbd4-65c2-4035-894c-3174f2e57d20"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-84d1fbd4-65c2-4035-894c-3174f2e57d20"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-1"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0d5d0f984c1005850",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-33fdc9ca-410f-4d3c-9d8f-8a54e8455c33"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-33fdc9ca-410f-4d3c-9d8f-8a54e8455c33"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-2"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0b4f76220e839754a",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-e784ab30-25c9-4b74-90a4-b0ee4edd7a1c"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-0"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-e784ab30-25c9-4b74-90a4-b0ee4edd7a1c"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0000b010ecc8c36cf",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-de2eed69-3601-498f-9f33-132e2f932d8c"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-0"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-de2eed69-3601-498f-9f33-132e2f932d8c"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0019b3db0d48f3f8a",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-2ec4f43f-2ba7-4d23-ab19-047bdc922046"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-2"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-2ec4f43f-2ba7-4d23-ab19-047bdc922046"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0eea9372d3c815987",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-b3db5cf1-25ff-40c7-8ecc-aa9da12b7c12"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-b3db5cf1-25ff-40c7-8ecc-aa9da12b7c12"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-0"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0ae2866ac8d11a795",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-1d08eaeb-1211-4ed7-b3be-eaff91e2e3b7"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r2-sts-0"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-1d08eaeb-1211-4ed7-b3be-eaff91e2e3b7"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0ae22937097fb7566",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 32,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-e0721ee6-70f1-447d-a473-7baeb1fbc2e1"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "cassandra"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-2"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-e0721ee6-70f1-447d-a473-7baeb1fbc2e1"
+      },
+      {
+        "key": "Project",
+        "value": "T303M1"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0e898c2935982f400",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 1,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "T303M1"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-a09dc1cb-28a7-4b48-ad5e-0b124df9c8e1"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "eventbus-obaas-1-argo-eventbus-js-vol-eventbus-obaas-1-argo-eventbus-js-2"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "obaas-1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-a09dc1cb-28a7-4b48-ad5e-0b124df9c8e1"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-004da12d14a21bf46",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 1,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-aff756b0-5048-4ad9-b1db-ac6e038fff83"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "obaas-1"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "Project",
+        "value": "T303M1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "eventbus-obaas-1-argo-eventbus-js-vol-eventbus-obaas-1-argo-eventbus-js-0"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-aff756b0-5048-4ad9-b1db-ac6e038fff83"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0c8ae8f9d805457b1",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 1,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-1782931a-fecb-472d-bd67-3b4a6d82f268"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "obaas-1"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "eventbus-obaas-1-argo-eventbus-js-vol-eventbus-obaas-1-argo-eventbus-js-1"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-1782931a-fecb-472d-bd67-3b4a6d82f268"
+      },
+      {
+        "key": "Project",
+        "value": "T303M1"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0f1a59ed1b79f0399",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 1,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "eventbus-obaas-2-argo-eventbus-js-vol-eventbus-obaas-2-argo-eventbus-js-0"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-45ecaf31-7959-4d89-8cc5-8fe74d467b34"
+      },
+      {
+        "key": "Project",
+        "value": "T303M1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "obaas-2"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-45ecaf31-7959-4d89-8cc5-8fe74d467b34"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-005e4b99ff37cb1d1",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp2",
+        "usage": {
+          "size_gb": 20,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": [
+          {
+            "instance_id": "i-0de1e01af1a5c0096"
+          }
+        ]
+      }
+    },
+    "tags": []
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0c4bc97d6933112f9",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 32,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "cassandra"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-0c5e4276-81d7-4656-89cb-3b1c4b346226"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-0c5e4276-81d7-4656-89cb-3b1c4b346226"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-1"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0021d17092af9c999",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-84002c4b-b9ce-4489-89f8-19e3d5f7b67e"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-0"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-84002c4b-b9ce-4489-89f8-19e3d5f7b67e"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-09a22c1681d1a7d42",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-default-sts-0"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-305ff950-fbe4-492d-aa95-50776c6c3a48"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-305ff950-fbe4-492d-aa95-50776c6c3a48"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-07d9fbc2a3fa60658",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-f1598105-c489-4a9d-a8bb-fa0aade6b010"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-f1598105-c489-4a9d-a8bb-fa0aade6b010"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-default-sts-0"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0eae40df663fa18a2",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-a12186a6-f573-4023-a3dc-cd5ddb4de538"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-r1-sts-0"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-a12186a6-f573-4023-a3dc-cd5ddb4de538"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0e23cbfad73b4bc00",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-57f953d0-1fa6-4083-b477-d8c1a440b3b1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-r2-sts-0"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-57f953d0-1fa6-4083-b477-d8c1a440b3b1"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-081b13f5fd7ca0467",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r3-sts-0"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-703e3fe5-5cb6-4c52-a075-b26439a64b1a"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-703e3fe5-5cb6-4c52-a075-b26439a64b1a"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-01a258b5555d10cbd",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-15943439-4f0f-4bee-8097-3b45a1a3b59c"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-0"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-15943439-4f0f-4bee-8097-3b45a1a3b59c"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-07b5d0a16730e4c6d",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-85750c57-0e63-46e4-9910-c64bbe741a24"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-2"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-85750c57-0e63-46e4-9910-c64bbe741a24"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0004c506b9781d66e",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-3935d70f-4ef5-4fbf-9551-245ddf12fc10"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-0"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-3935d70f-4ef5-4fbf-9551-245ddf12fc10"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-021a5150bbad2d6a3",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-1"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-d88588a6-8fbe-4839-801c-08e55d447103"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-d88588a6-8fbe-4839-801c-08e55d447103"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-09f6fb2e15c05c2c9",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-3940b7af-1021-496e-b473-6605173effa6"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-3940b7af-1021-496e-b473-6605173effa6"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-0"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-06c0dc3176c386de0",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r2-sts-0"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-a54eca69-89c0-43a2-8eb8-95c0b59acb64"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-a54eca69-89c0-43a2-8eb8-95c0b59acb64"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-09c9f1929fac446e8",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r3-sts-0"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-f881ffd7-6f2f-4439-9c19-925636cdcc54"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-f881ffd7-6f2f-4439-9c19-925636cdcc54"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-09b9b7f9bf82153b2",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-f23958c4-9fbb-4bb5-a1be-bf24e1c0954b"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-f23958c4-9fbb-4bb5-a1be-bf24e1c0954b"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r2-sts-0"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-06d083bdf575472a6",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-7c3327eb-7892-474f-ac75-6490450a0f3b"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-7c3327eb-7892-474f-ac75-6490450a0f3b"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0782a271d11aa811f",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-2"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-c394ed29-3cfd-4787-8995-9e4b93177cfb"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-c394ed29-3cfd-4787-8995-9e4b93177cfb"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-04fec860501f34d40",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-4dd1219f-16f7-47e2-b2e5-30ddfad5975a"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-dc2-default-sts-1"
+      },
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-4dd1219f-16f7-47e2-b2e5-30ddfad5975a"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-03d2dcc9494636674",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 5,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "Project",
+        "value": "ARCHIPRD"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "k8ssandra-operator"
+      },
+      {
+        "key": "Environment",
+        "value": "archiprd"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-cd1413cf-e433-49b0-b764-73a624abcc7e"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r3-sts-0"
+      },
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-cd1413cf-e433-49b0-b764-73a624abcc7e"
+      },
+      {
+        "key": "env",
+        "value": "archiprd"
+      }
+    ]
+  },
+  {
+    "provider": "AWS",
+    "id": "vol-0127f764b1eadfe32",
+    "location": {
+      "aws_region": "eu-west-1",
+      "iso_country_code": "IRL"
+    },
+    "resource_details": {
+      "BlockStorage": {
+        "storage_type": "gp3",
+        "usage": {
+          "size_gb": 32,
+          "usage_duration_seconds": 3600
+        },
+        "attached_instances": null
+      }
+    },
+    "tags": [
+      {
+        "key": "CSIVolumeName",
+        "value": "pvc-ce0784c4-035d-4fe4-838f-44cadd29c9e5"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/name",
+        "value": "server-data-cassandra-datacenter-r1-sts-1"
+      },
+      {
+        "key": "kubernetes.io/created-for/pv/name",
+        "value": "pvc-ce0784c4-035d-4fe4-838f-44cadd29c9e5"
+      },
+      {
+        "key": "Environment",
+        "value": "t303m1"
+      },
+      {
+        "key": "ebs.csi.aws.com/cluster",
+        "value": "true"
+      },
+      {
+        "key": "kubernetes.io/created-for/pvc/namespace",
+        "value": "cassandra"
+      },
+      {
+        "key": "env",
+        "value": "t303m1"
+      },
+      {
+        "key": "Project",
+        "value": "T303M1"
+      }
+    ]
+  }
+]

@@ -34,10 +34,11 @@ impl CloudInventory for AwsInventory {
         tags: &[String],
         include_block_storage: bool,
         simulation: bool,
+        filename: &str,
     ) -> Result<Vec<CloudResource>> {
         let mut inventory: Vec<CloudResource> = Vec::new();
 
-        /// else from direct read
+        // else from direct read
         let mut instances = self.clone().get_instances_with_usage_data(tags, simulation).await?;
         inventory.append(&mut instances);
         if include_block_storage {
@@ -80,7 +81,7 @@ impl CloudInventory for AwsInventory {
         }
     }
 
-    async fn get_data_from_file(filename: &str) {
+    async fn get_data_from_file(filename: &str) -> Result<Vec<CloudResource>> {
         unimplemented!("Not implemented yet");
     }
 
@@ -186,6 +187,10 @@ impl CloudInventory for AwsInventory {
             }
         }
         Ok(instances)
+    }
+
+    async fn list_cloud_resource(self, _tags: &[String]) -> Result<Vec<CloudResource>> {
+        unimplemented!("Not implemented yet");
     }
 
     /// Returns average CPU load of a given instance.
