@@ -79,6 +79,14 @@ async fn scan(event: Request) -> Result<impl IntoResponse, Error> {
         None => false,
     };
 
+    let filename = match query_string_parameters.first("filename") {
+        Some(filename) => filename,
+        None => {
+            println!("No 'filename' parameter in path, will fallback to default");
+            ""
+        }
+    };
+
     println!("Using use time of {}", hours_use_time);
     println!("Using aws_region {}", aws_region);
     println!("Using tag filers {:?}", filter_tags);
@@ -92,6 +100,7 @@ async fn scan(event: Request) -> Result<impl IntoResponse, Error> {
         verbose_output,
         include_block_storage,
         simulation,
+        filename,
     )
     .await
     .unwrap();

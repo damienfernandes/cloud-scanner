@@ -3,7 +3,6 @@ use crate::cloud_inventory::CloudInventory;
 use crate::cloud_resource::*;
 
 use anyhow::{Context, Result};
-use serde::Deserialize;
 use serde_json;
 use std::fs::File;
 use std::io::Read;
@@ -15,12 +14,6 @@ use aws_sdk_cloudwatch::operation::get_metric_statistics::GetMetricStatisticsOut
 use aws_sdk_ec2::types::Volume;
 use boavizta_api_sdk::models::{Cloud, UsageCloud};
 use crate::usage_location::UsageLocation;
-
-#[derive(Debug, Deserialize)]
-struct Tag {
-    key: String,
-    value: String,
-}
 
 ///  An inventory of AWS resources
 #[derive(Clone, Debug)]

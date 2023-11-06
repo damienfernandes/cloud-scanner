@@ -60,11 +60,21 @@ async fn summary(event: Request) -> Result<impl IntoResponse, Error> {
         None => false,
     };
 
+    let filename = match query_string_parameters.first("filename") {
+        Some(filename) => filename,
+        None => {
+            println!("No 'filename' parameter in path, will fallback to default");
+            ""
+        }
+    };
+
     println!("Using fixed use time of 1 hour.");
     println!("Using aws_region: {}", aws_region);
     println!("Using tag filers: {:?}", filter_tags);
     println!("Include block storage: {:?}", include_block_storage);
     println!("Is simulation: {}", simulation);
+    println!("Using filename {}", filename);
+
 
     let impacts: String = cloud_scanner_cli::get_default_impacts_as_metrics(
         &1.0,
@@ -73,6 +83,7 @@ async fn summary(event: Request) -> Result<impl IntoResponse, Error> {
         &config.boavizta_api_url,
         include_block_storage,
         simulation,
+        filename,
     )
     .await
     .unwrap();
